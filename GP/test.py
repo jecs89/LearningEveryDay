@@ -1,21 +1,3 @@
-## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-## %% Genetic Programming with GPLearn
-## %% Source: http://gplearn.readthedocs.io/en/stable/examples.html
-## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-## %% Modified by jecs89
-## %% website: https://www.researchgate.net/profile/Josimar_Chire/
-## %% github: https:##github.com/jecs89/LearningEveryDay
-## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-## %% DON'T FORGET THE CREDITS OF THE CODE
-## %% IF YOU ARE INTERESTED TO PERFORM EXPERIMENTS
-## %% WRITE ME AND WE CAN DISCUSS
-## %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-## You must install 
-## pip install --user gplearn
-## git clone https://github.com/trevorstephens/gplearn.git
-## python setup.py install --user
-
 #pylab inline
 from gplearn.genetic import SymbolicRegressor
 from sklearn.ensemble import RandomForestRegressor
@@ -24,7 +6,7 @@ from sklearn.utils.random import check_random_state
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
-from IPython.display import Image
+from IPython.display import display, Image
 import pydotplus
 
 
@@ -38,7 +20,7 @@ ax = plt.figure().gca(projection='3d')
 ax.set_xlim(-1, 1)
 ax.set_ylim(-1, 1)
 surf = ax.plot_surface(x0, x1, y_truth, rstride=1, cstride=1, color='green', alpha=0.5)
-plt.show()
+# plt.show()
 
 
 rng = check_random_state(0)
@@ -93,4 +75,20 @@ for i, (y, score, title) in enumerate([(y_truth, None, "Ground Truth"),
     if score is not None:
         score = ax.text(-.7, 1, .2, "$R^2 =\/ %.6f$" % score, 'x', fontsize=14)
     plt.title(title)
-plt.show()
+# plt.show()
+
+
+graph = pydotplus.graphviz.graph_from_dot_data(est_gp._program.export_graphviz())
+graph.write('test.dot')
+# graph.create(prog=['twopi'],format='ps')
+
+
+
+# print est_gp._program.parents
+
+
+# idx = est_gp._program.parents['donor_idx']
+# fade_nodes = est_gp._program.parents['donor_nodes']
+# graph = est_gp._programs[-2][idx].export_graphviz(fade_nodes=fade_nodes)
+# graph = pydotplus.graphviz.graph_from_dot_data(graph)
+# Image(graph.create_png())

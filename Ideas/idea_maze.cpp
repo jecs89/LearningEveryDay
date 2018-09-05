@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
 
 	int num_iter = 0;
 
-	while( init_x != 0 && init_y != 9 ){
+	while( !(init_x == 0 && init_y == 9) ){
 		num_iter++;
 		
 		double mov = dist(rng);

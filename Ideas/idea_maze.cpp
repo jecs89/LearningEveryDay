@@ -130,6 +130,14 @@ int main(int argc, char const *argv[])
 		if(reward <= tmp_reward){
 			movements.pop_back();
 		}
+		/*
+		if( movements[movements.size()-1] == 'L' && movements[movements.size()] == 'R' || movements[movements.size()-1] == 'R' && movements[movements.size()] == 'L' ){
+			movements.pop_back();
+		}
+		else if( movements[movements.size()-1] == 'D' && movements[movements.size()] == 'U' || movements[movements.size()-1] == 'U' && movements[movements.size()] == 'D' ){
+			movements.pop_back();
+		}*/
+
 		cout << "( " << init_x << ", " << init_y << ")" << endl;
 
 		for (int i = 0; i < 10; ++i){

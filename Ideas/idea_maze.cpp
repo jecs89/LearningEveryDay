@@ -24,6 +24,29 @@ void test(){
 		} cout << endl;
 	}
 }
+
+void clean(vector<char>& movements){
+	for( int i = 1 ; i < movements.size() ; i++){
+		if( movements[i-1] == 'L' && movements[i] == 'R' || movements[i-1] == 'R' && movements[i] == 'L' ){
+			movements[i-1] = movements[i] = ' ';
+		}
+		if( movements[i-1] == 'D' && movements[i] == 'U' || movements[i-1] == 'U' && movements[i] == 'D' ){
+			movements[i-1] = movements[i] = ' ';
+		}
+	}
+
+	cout << "Cleaned Path\n";
+	vector<char> c_movements;
+	for( int i = 0 ; i < movements.size() ; i++){
+		if (movements[i]!= ' '){
+			c_movements.push_back(movements[i]);
+		}
+		//cout << movements[i];
+	} //cout << endl;
+
+	movements = c_movements;
+}
+
 int main(int argc, char const *argv[])
 {
 	/*string maz [10] = {	"1010000110",
@@ -59,7 +82,7 @@ int main(int argc, char const *argv[])
 	uniform_real_distribution<double> dist( 0, 1 );
 	default_random_engine rng( random_device{}() );
 
-	int steps = 100; int init_x = 9, init_y = 0; int reward = 0;
+	int steps = 10000; int init_x = 9, init_y = 0; int reward = 0;
 	maz[init_x][init_y] = 'o';
 	int tmp_x, tmp_y;
 
@@ -118,20 +141,25 @@ int main(int argc, char const *argv[])
 		cout << movements[i];
 	} cout << endl;
 
-	for( int i = 1 ; i < movements.size() ; i++){
-		if( movements[i-1] == 'L' && movements[i] == 'R' || movements[i-1] == 'R' && movements[i] == 'L' ){
-			movements[i-1] = movements[i] = ' ';
-		}
-		if( movements[i-1] == 'D' && movements[i] == 'U' || movements[i-1] == 'U' && movements[i] == 'D' ){
-			movements[i-1] = movements[i] = ' ';
-		}
-	}
-
-	cout << "Cleaned Path\n";
-
+	clean(movements);
+	
 	for( int i = 0 ; i < movements.size() ; i++){
 		cout << movements[i];
 	} cout << endl;
+
+	int tmp_size = 1, size_m = 1;
+
+	while( true ){
+		tmp_size = movements.size();
+		clean(movements);
 		
+		for( int i = 0 ; i < movements.size() ; i++){
+			cout << movements[i];
+		} cout << endl;
+		size_m = movements.size();
+
+		if( size_m == tmp_size ){ break; }
+	}
+
 	return 0;
 }

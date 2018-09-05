@@ -88,7 +88,12 @@ int main(int argc, char const *argv[])
 
 	cout << "Initial Reward: " << reward << endl;
 	vector<char> movements; int tmp_reward;
-	for( int i = 0 ; i < steps; i++){
+	//for( int i = 0 ; i < steps; i++){
+
+	int num_iter = 0;
+
+	while( init_x != 0 && init_y != 9 ){
+		num_iter++;
 		
 		double mov = dist(rng);
 		//cout << mov << endl;
@@ -160,6 +165,8 @@ int main(int argc, char const *argv[])
 
 		if( size_m == tmp_size ){ break; }
 	}
+
+	cout << "# iter: " << num_iter << endl;
 
 	return 0;
 }

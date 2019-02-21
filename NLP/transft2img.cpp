@@ -20,7 +20,7 @@ int main(int argc, char const *argv[]){
 	while (infile >> a){
 	    //cout << a << endl;
 	    for( int i = 0 ; i < a.length(); i++){
-	    	src.at<uchar>(int(count/src.cols), int(count%src.cols)) = 255 - a[i];
+	    	src.at<uchar>(int(count/src.cols), int(count%src.cols)) = a[i];
 	    	//cout << int(count%src.cols) << " " << int(count/src.cols) << endl;
 	    	//cout << a[i] << " ";
 	    }

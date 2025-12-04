@@ -1,0 +1,10 @@
+# Sistema Multi-Agente - Mínimo Esencial
+fastapi==0.116.1
+uvicorn==0.35.0
+streamlit==1.48.0
+pandas==2.3.1
+requests==2.32.4
+python-dotenv==1.1.1
+openai==1.98.0
+pydantic==2.11.7
+numpy==2.2.6

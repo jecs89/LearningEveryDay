@@ -41,3 +41,33 @@ graph TB
     D <--> G[Datos de Mercado]
     E <--> H[Noticias y Redes]
     
+## 🚀 Instalación y Uso
+
+### 1. Crear un entorno virtual
+Ejecuta en tu terminal:
+
+python -m venv venv
+
+### 2. Activar el entorno
+En Linux / macOS:
+
+source venv/bin/activate
+
+### 3. Instalar dependencias
+
+pip install -r requirements.txt
+
+### 4. Crear archivo `.env` con tus claves:
+
+# LLM APIs
+OPENAI_API_KEY=sk-tu_clave_aqui
+DEEPSEEK_API_KEY=tu_clave_aqui
+MISTRAL_API_KEY=tu_clave_aqui
+
+### 5. Dar permisos al script de inicio
+
+chmod +x start_in_current.sh
+
+### 6. Ejecutar la aplicación
+
+source start_in_current.sh

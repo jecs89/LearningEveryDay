@@ -60,10 +60,12 @@ pip install -r requirements.txt
 
 ### 4. Crear archivo `.env` con tus claves:
 
-LLM APIs
+```
+#LLM APIs
 OPENAI_API_KEY=sk-tu_clave_aquis
 DEEPSEEK_API_KEY=tu_clave_aqui
 MISTRAL_API_KEY=tu_clave_aqui
+```
 
 ### 5. Dar permisos al script de inicio
 

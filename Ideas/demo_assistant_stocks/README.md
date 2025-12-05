@@ -40,6 +40,7 @@ graph TB
     C <--> F[LLMs: OpenAI/DeepSeek/Mistral]
     D <--> G[Datos de Mercado]
     E <--> H[Noticias y Redes]
+```
     
 ## 🚀 Instalación y Uso
 
